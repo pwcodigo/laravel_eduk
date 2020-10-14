@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'adm'], function (){
-    Route::get('/', function(){
-        return "ADM HOME";
-    });
+Route::group(['prefix' => 'adm', 'as' => 'adm.'], function (){
+    Route::get('/', ['as' => 'index', 'uses' => function(){ return "ADM HOME"; }]);
 });
