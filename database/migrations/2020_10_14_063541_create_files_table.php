@@ -30,6 +30,10 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table){
+            $table->dropForeign(['file_id']);
+        });
+        
         Schema::dropIfExists('files');
     }
 }
